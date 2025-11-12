@@ -13,38 +13,38 @@ v1.0.0
 
 Output Screenshots:
 
-> 1.S3 bucket `maheshportfolio.com` in eu-north-1 that stores the static resume files.
+> S3 bucket `maheshportfolio.com` in eu-north-1 that stores the static resume files.
 ![](./img/s1.png)
 >
-> 2. Static website assets (index.html, profile.jpg, risen.css) uploaded to the S3 bucket.
-> ![](./img/s2.png)
+> Static website assets (index.html, profile.jpg, risen.css) uploaded to the S3 bucket.
+> s2
 >
-> 3.CloudFront distribution configured with the S3 bucket as origin; CloudFront access to the origin is granted.
-> ![](./img/s3.png)
+> CloudFront distribution configured with the S3 bucket as origin; CloudFront access to the origin is granted.
+> s3
 >
-> 4. Details of the CloudFront distribution used to accelerate the static site (distribution domain shown).
-> ![](./img/s4.png)
+> Details of the CloudFront distribution used to accelerate the static site (distribution domain shown).
+> s4
 >
-> 5. CloudFront distributions list — the distribution for the static portfolio is enabled and deploying.
-> ![](./img/s5.png)
+> CloudFront distributions list — the distribution for the static portfolio is enabled and deploying.
+> s5
 >
-> 6. DynamoDB table `portfolio_views` (On-demand) used by the backend to store page view counts.
-> ![](./img/s6.png)
+> DynamoDB table `portfolio_views` (On-demand) used by the backend to store page view counts.
+> s6
 >
-> 7. EC2 instance (`Project_Res_Stat`) used as the deployment target for the containerized API.
-> ![](./img/s7.png)
+> EC2 instance (`Project_Res_Stat`) used as the deployment target for the containerized API.
+> s7
 >
-> 8. IAM roles created for CodeBuild, CodeDeploy and the EC2 instance (used for pipeline permissions).
-> ![](./img/s8.png)
+> IAM roles created for CodeBuild, CodeDeploy and the EC2 instance (used for pipeline permissions).
+> s8
 >
-> 9. Custom IAM policy `EC2-DynamoDB-SSM-Access` attached to the EC2 role for DynamoDB and SSM parameter access.
-> ![](./img/s9.png)
+> Custom IAM policy `EC2-DynamoDB-SSM-Access` attached to the EC2 role for DynamoDB and SSM parameter access.
+> s9
 >
-> 10. Docker build output demonstrating successful layer extraction and image build for `view-api`.
-> ![](./img/s10.png)
+> Docker build output demonstrating successful layer extraction and image build for `view-api`.
+> s10
 >
-> 11. Local test of the `view-api` running on `localhost:4000` — API returns JSON `{ "views": 0 }` indicating successful response from the backend.
-> ![](./img/s11.png)
+>Local test of the `view-api` running on `localhost:4000` — API returns JSON `{ "views": 0 }` indicating successful response from the backend.
+> s11
 >
-> 12. The static portfolio website served via the CloudFront distribution (demonstrates S3→CloudFront hosting for the resume site).
-> ![](./img/s12.png)
+> The static portfolio website served via the CloudFront distribution (demonstrates S3→CloudFront hosting for the resume site).
+> s12
