@@ -1,4 +1,7 @@
-<img width="1280" height="720" alt="featuredd" src="https://github.com/user-attachments/assets/e1e064a4-839b-4567-811b-d0ed72ffbbaa" />
+# AWS Full Stack Resume Project.
+v1.0.0
+![](./img/featured.png)
+
 Developed a professional resume website hosted on AWS, utilizing various AWS services for robustness and security.
 Leveraged AWS CloudFront CDN for efficient content delivery and AWS S3 bucket for hosting static website content, ensuring scalability and reliability.
 Implemented HTTPS protocol for enhanced security, supported by SSL/TLS certificate managed by AWS Certificate Manager.
