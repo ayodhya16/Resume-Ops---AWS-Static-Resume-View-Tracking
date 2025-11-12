@@ -1,2 +1,8 @@
-# Resume Ops-AWS Static Resume View-Tracking
- ResumeOps is a production-ready static resume hosted on AWS (S3, CloudFront, Route 53, ACM) with secure bucket policies and HTTPS for fast, global delivery. The project includes a Dockerized Go (Gin) view-tracking API backed by DynamoDB, automated CI/CD, IAM/Parameter Store for secrets, and CloudWatch monitoring for reliability and scale.
+Developed a professional resume website hosted on AWS, utilizing various AWS services for robustness and security.
+Leveraged AWS CloudFront CDN for efficient content delivery and AWS S3 bucket for hosting static website content, ensuring scalability and reliability.
+Implemented HTTPS protocol for enhanced security, supported by SSL/TLS certificate managed by AWS Certificate Manager.
+Managed DNS with AWS Route 53 for seamless domain management and resolution.
+Engineered a view tracking API using Go language, integrated with AWS DynamoDB for efficient data storage and retrieval.
+Containerized the View Tracking API using Docker for streamlined deployment and scalability.
+Orchestrated deployment pipeline on AWS utilizing AWS CodePipeline, CodeBuild, and CodeDeploy for automated building, testing, and deployment of the API Docker image.
+Employed various AWS services including IAM Roles and IAM Users for secure access management and authorization.
