@@ -1,20 +1,30 @@
 version: 0.2
+
 env:
-  parameter-store:
-    DOCKER_USERNAME: maheshbabu16
-    DOCKER_PASSWORD: Babu@mb16
-    DOCKER_URL: docker.io
+  variables:
+    REPOSITORY_URI: "573263825337.dkr.ecr.us-east-1.amazonaws.com/view-api"
+
 phases:
+  pre_build:
+    commands:
+      - echo "Starting pre_build"
+      - aws --version
+      - echo "Logging in to Amazon ECR..."
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REPOSITORY_URI
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - if [ -z "$COMMIT_HASH" ]; then IMAGE_TAG=latest; else IMAGE_TAG=$COMMIT_HASH; fi
+      - echo "IMAGE_TAG=$IMAGE_TAG"
   build:
     commands:
-      - cd tracker_api/
-      - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_URL
-      - docker build -t "$DOCKER_USERNAME/view_api_img:latest" .
-      - docker push "$DOCKER_USERNAME/view_api_img:latest"
+      - echo "Build started on `date`"
+      - docker build --pull -t view-api:$IMAGE_TAG backend/
+      - docker tag view-api:$IMAGE_TAG $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
-      - echo "Successfully pushed to Docker hub Registry"
+      - echo "Pushing to ECR..."
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - printf '[{"name":"view-api","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - cat imagedefinitions.json
 artifacts:
   files:
-    - '**/*'
-  name: my-artifact
+    - imagedefinitions.json
