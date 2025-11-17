@@ -1,5 +1,5 @@
 # AWS Full Stack Resume Project.
-See website [here](https://d8bol1rxldput.cloudfront.net/)
+See website [here](https://d8bol1rxldput.cloudfront.net/).
 
 
 v1.0.0
